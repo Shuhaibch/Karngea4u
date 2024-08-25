@@ -2,24 +2,30 @@ import 'package:flutter/material.dart';
 import 'package:karngea4u/core/utils/color/colors.dart';
 
 class SettingsTextFeild extends StatelessWidget {
-  const SettingsTextFeild({
-    super.key,
-    required this.width,
-    this.icon,
-    this.suffixIcon,
-    required this.controller,
-    required this.hintText,
-    this.obscureText = false,
-  });
+  const SettingsTextFeild(
+      {super.key,
+      required this.width,
+      this.icon,
+      this.readOnly = false,
+      this.suffixIcon,
+      required this.controller,
+      required this.hintText,
+      this.obscureText = false,
+      this.suffixColor = CColors.whiteColor,
+      this.validator});
 
   final double width;
   final IconData? icon, suffixIcon;
   final TextEditingController controller;
   final String hintText;
-  final bool obscureText;
+  final bool obscureText, readOnly;
+  final Color suffixColor;
+  final String? Function(String?)? validator;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      validator: validator,
+      readOnly: readOnly,
       controller: controller,
       cursorColor: CColors.whiteColor,
       style: Theme.of(context)
@@ -36,7 +42,7 @@ class SettingsTextFeild extends StatelessWidget {
         ),
         suffixIcon: Icon(
           suffixIcon,
-          color: CColors.whiteColor,
+          color: suffixColor,
           size: width * .03,
         ),
         hintText: hintText,

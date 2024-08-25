@@ -1,7 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
-import 'package:karngea4u/core/commen/widgets/image/image_container.dart';
+import 'package:karngea4u/core/commen/widgets/image/rounded_image_container.dart';
 import 'package:karngea4u/core/utils/color/colors.dart';
 import 'package:karngea4u/core/utils/constants/image_string.dart';
 import 'package:karngea4u/core/utils/sizes/sizes.dart';
@@ -23,29 +21,13 @@ class HomeDrawerProfileImageWidget extends StatelessWidget {
           InkWell(
             onTap: () {
               showDialog(
-                barrierDismissible: false,
+                barrierDismissible: true,
                 context: context,
                 builder: (context) {
-                  return Scaffold(
-                    body: Center(
-                      child: Stack(
-                        children: [
-                          const CRoundedImage(imageUrl: CImageString.userIcons),
-                          Positioned(
-                            right: 5,
-                            child: InkWell(
-                              onTap: () {
-                                Navigator.pop(context);
-                              },
-                              child: const Icon(
-                                Iconsax.close_circle,
-                                color: CColors.whiteColor,
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
+                  return const Dialog(
+                    backgroundColor: CColors.primaryColor,
+                    child:
+                        CRoundedImage(imageUrl: CImageString.userIcons),
                   );
                 },
               );

@@ -36,63 +36,70 @@ class _SettingsPasswordChangeScreenState
               .titleMedium!
               .copyWith(color: CColors.whiteColor),
         ),
+        dividerColor: CColors.secondaryColor,
       ),
-      body: Column(
-        children: [
-          const Divider(color: CColors.secondaryColor),
-          Padding(
-            padding: const EdgeInsets.all(CSizes.defaultSpace),
-            child: Column(
-              children: [
-                SettingsTextFeild(
-                  width: width,
-                  controller: oPasswordCTRL,
-                  hintText: "Current Password",
-                  icon: Icons.lock_outline,
-                ),
-                const SizedBox(height: CSizes.spaceBtwInputFeild),
-                SettingsTextFeild(
-                  width: width,
-                  controller: newPasswordCTRL,
-                  hintText: "New Password",
-                  icon: Icons.lock_outline,
-                ),
-                const SizedBox(height: CSizes.spaceBtwInputFeild),
-                SettingsTextFeild(
-                  width: width,
-                  controller: cNameCTRL,
-                  hintText: "Password Confirmation",
-                  icon: Icons.lock_outline,
-                ),
-                const SizedBox(height: CSizes.spaceBtwInputFeild),
-                SizedBox(
-                  width: double.infinity,
-                  child: OutlinedButton(
-                    style:
-                        Theme.of(context).outlinedButtonTheme.style!.copyWith(),
-                    onPressed: () {
-                      showDialog(
-                        barrierDismissible: false,
-                        context: context,
-                        builder: (BuildContext context) {
-                          return SettingDialogWidget(
-                              title: "Change Password",
-                              subTitle: "Are you sure to change password",
-                              height: height,
-                              width: width);
-                        },
-                      );
-                    },
-                    child: const Text(
-                      'Save',
-                      style: TextStyle(color: CColors.whiteColor),
-                    ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(CSizes.defaultSpace),
+              child: Column(
+                children: [
+                  SettingsTextFeild(
+                    width: width,
+                    controller: oPasswordCTRL,
+                    hintText: "Current Password",
+                    icon: Icons.lock_outline,
                   ),
-                )
-              ],
-            ),
-          )
-        ],
+                  const SizedBox(height: CSizes.spaceBtwInputFeild),
+                  SettingsTextFeild(
+                    width: width,
+                    controller: newPasswordCTRL,
+                    hintText: "New Password",
+                    icon: Icons.lock_outline,
+                  ),
+                  const SizedBox(height: CSizes.spaceBtwInputFeild),
+                  SettingsTextFeild(
+                    width: width,
+                    controller: cNameCTRL,
+                    hintText: "Password Confirmation",
+                    icon: Icons.lock_outline,
+                  ),
+                  const SizedBox(height: CSizes.spaceBtwInputFeild),
+                  SizedBox(
+                    width: double.infinity,
+                    child: OutlinedButton(
+                      style: Theme.of(context)
+                          .outlinedButtonTheme
+                          .style!
+                          .copyWith(),
+                      onPressed: () {
+                        showDialog(
+                          barrierDismissible: false,
+                          context: context,
+                          builder: (BuildContext context) {
+                            return SettingDialogWidget(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                title: "Change Password",
+                                subTitle: "Are you sure to change password",
+                                height: height,
+                                width: width);
+                          },
+                        );
+                      },
+                      child: const Text(
+                        'Save',
+                        style: TextStyle(color: CColors.whiteColor),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

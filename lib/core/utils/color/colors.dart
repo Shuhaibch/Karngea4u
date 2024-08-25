@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 class CColors {
   CColors._();
 
-
   //* App Basic Color
   static const Color primaryColor = Color(0xFF175c7b);
   static const Color secondaryColor = Color(0xFF2B8FA8);
@@ -11,8 +10,8 @@ class CColors {
 
   //* Gradient Colors
   static const Gradient linearGradient = LinearGradient(
-  begin: Alignment(0, 0),
-  end: Alignment(.707, -.707),
+    begin: Alignment(0, 0),
+    end: Alignment(.707, -.707),
     colors: [
       Color(0xFFff9a9e),
       Color(0xFFfad0c4),
@@ -23,6 +22,8 @@ class CColors {
   //* Text Color
   static const Color textPrimaryColor = Color(0xFF333333);
   static const Color textSecondaryColor = Color(0xFF6c7570);
+  static const Color messageUserColor = Color(0xFFE3F0F4);
+  static const Color messageNotUserColor = Color(0xFF97C8D4);
   static const Color textWhiteColor = Colors.white;
 
   //* Background Color

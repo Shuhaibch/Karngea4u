@@ -33,63 +33,68 @@ class _SettingsChangePhoneScreenState extends State<SettingsChangePhoneScreen> {
               .titleMedium!
               .copyWith(color: CColors.whiteColor),
         ),
+        dividerColor: CColors.secondaryColor,
       ),
-      body: Column(
-        children: [
-          const Divider(color: CColors.secondaryColor),
-          Padding(
-            padding: const EdgeInsets.all(CSizes.defaultSpace),
-            child: Column(
-              children: [
-                SettingsTextFeild(
-                  width: width,
-                  controller: oPhoneCTRL,
-                  hintText: "Current Phone Number",
-                  icon: Icons.phone,
-                ),
-                const SizedBox(height: CSizes.spaceBtwInputFeild),
-                SettingsTextFeild(
-                  width: width,
-                  controller: newPhoneCTRL,
-                  hintText: "New Phone Number",
-                  icon: Icons.phone,
-                ),
-                const SizedBox(height: CSizes.spaceBtwInputFeild),
-                SettingsTextFeild(
-                  width: width,
-                  controller: otpCTRL,
-                  hintText: "OTP Code",
-                  icon: Icons.phone,
-                ),
-                const SizedBox(height: CSizes.spaceBtwInputFeild),
-                SizedBox(
-                  width: double.infinity,
-                  child: OutlinedButton(
-                    style:
-                        Theme.of(context).outlinedButtonTheme.style!.copyWith(),
-                    onPressed: () {
-                      // showDialog(
-                      //   barrierDismissible: false,
-                      //   context: context,
-                      //   builder: (BuildContext context) {
-                      //     return SettingDialogWidget(
-                      //         title: "Change Password",
-                      //         subTitle: "Are you sure to change password",
-                      //         height: height,
-                      //         width: width);
-                      //   },
-                      // );
-                    },
-                    child: const Text(
-                      'Send OTP ',
-                      style: TextStyle(color: CColors.whiteColor),
-                    ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(CSizes.defaultSpace),
+              child: Column(
+                children: [
+                  SettingsTextFeild(
+                    width: width,
+                    controller: oPhoneCTRL,
+                    hintText: "Current Phone Number",
+                    icon: Icons.phone,
                   ),
-                )
-              ],
-            ),
-          )
-        ],
+                  const SizedBox(height: CSizes.spaceBtwInputFeild),
+                  SettingsTextFeild(
+                    width: width,
+                    controller: newPhoneCTRL,
+                    hintText: "New Phone Number",
+                    icon: Icons.phone,
+                  ),
+                  const SizedBox(height: CSizes.spaceBtwInputFeild),
+                  SettingsTextFeild(
+                    width: width,
+                    controller: otpCTRL,
+                    hintText: "OTP Code",
+                    icon: Icons.phone,
+                  ),
+                  const SizedBox(height: CSizes.spaceBtwInputFeild),
+                  SizedBox(
+                    width: double.infinity,
+                    child: OutlinedButton(
+                      style: Theme.of(context)
+                          .outlinedButtonTheme
+                          .style!
+                          .copyWith(),
+                      onPressed: () {
+                        // showDialog(
+                        //   barrierDismissible: false,
+                        //   context: context,
+                        //   builder: (BuildContext context) {
+                        //     r
+                        //eturn SettingDialogWidget(
+                        //         title: "Change Password",
+                        //         subTitle: "Are you sure to change password",
+                        //         height: height,
+                        //         width: width);
+                        //   },
+                        // );
+                      },
+                      child: const Text(
+                        'Send OTP ',
+                        style: TextStyle(color: CColors.whiteColor),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

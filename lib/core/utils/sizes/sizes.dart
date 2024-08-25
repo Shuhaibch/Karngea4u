@@ -1,5 +1,6 @@
 class CSizes {
   //* padding and margin sizes
+  static const double xxs = 2.0;
   static const double xs = 4.0;
   static const double sm = 8.0;
   static const double md = 16.0;
@@ -30,7 +31,7 @@ class CSizes {
   static const double imageThumbSize = 80.0;
 
   //* Default spacing between section
-  static const double defaultSpace = 24.0;
+  static const double defaultSpace = 18.0;
   static const double spaceBtwItem = 16.0;
   static const double spaceBtwSection = 32.0;
 
@@ -66,5 +67,4 @@ class CSizes {
 
   //* Grid View Spacing
   static const double gridViewSpacing = 16.0;
-
 }

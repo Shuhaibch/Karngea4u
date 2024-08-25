@@ -7,7 +7,8 @@ import 'package:karngea4u/core/utils/device/device_util.dart';
 import 'package:karngea4u/core/utils/sizes/sizes.dart';
 import 'package:karngea4u/features/home/widgets/home_drawer_widget.dart';
 import 'package:karngea4u/features/home/widgets/home_grid_container_widget.dart';
-import 'package:karngea4u/features/home/widgets/home_widget_model.dart';
+import 'package:karngea4u/features/home/widgets/widget_model.dart';
+import 'package:karngea4u/features/notification/screens/notification_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -16,7 +17,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final height = CDeviceUtils.getScreenheight(context);
     final width = CDeviceUtils.getScreenWidth(context);
-    final List<HomeWidgetModel> homeList = CDummyData.homeWidgetList(context);
+    final List<GridWidgetModel> homeList = CDummyData.homeWidgetList(context);
 
     return Scaffold(
       drawer: const HomeDrawerWidget(),
@@ -27,12 +28,19 @@ class HomeScreen extends StatelessWidget {
           style: Theme.of(context).textTheme.titleMedium!,
         ),
         centerTitle: true,
-        actions: const [
+        actions: [
           Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Icon(
-              Icons.notifications_none,
-              color: CColors.primaryColor,
+            padding: const EdgeInsets.all(8.0),
+            child: InkWell(
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const NotificationScreen(),
+                ));
+              },
+              child: const Icon(
+                Icons.notifications_none,
+                color: CColors.primaryColor,
+              ),
             ),
           ),
         ],
@@ -56,7 +64,7 @@ class HomeScreen extends StatelessWidget {
           ),
           const SizedBox(height: CSizes.spaceBtwItem),
           SizedBox(
-            height: height * .38,
+            height: height * .37,
             child: Padding(
               padding:
                   const EdgeInsets.symmetric(horizontal: CSizes.defaultSpace),
@@ -76,12 +84,12 @@ class HomeScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15),
             child: Image(
-              height: height * .2,
+              height: height * .18,
               // width: width * .4,
               image: const AssetImage(
                 CImageString.homeBgImage,
               ),
-              fit: BoxFit.contain,
+              fit: BoxFit.cover,
             ),
           ),
           const Spacer(),

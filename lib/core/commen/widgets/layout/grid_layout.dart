@@ -3,14 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:karngea4u/core/utils/sizes/sizes.dart';
 
 class CGridLayout extends StatelessWidget {
-  const CGridLayout({
-    super.key,
-    required this.itemCount,
-    this.mainAxisExtent = 170,
-    required this.itemBuilder,
-  });
-  final int itemCount;
+  const CGridLayout(
+      {super.key,
+      required this.itemCount,
+      this.mainAxisExtent = 140,
+      this.crossAxisSpacing = 0,
+      this.mainAxisSpacing = 0,
+      required this.itemBuilder,
+      this.crossAxisCount = 2});
+  final int itemCount, crossAxisCount;
   final double? mainAxisExtent;
+  final double crossAxisSpacing, mainAxisSpacing;
   final Widget? Function(BuildContext, int) itemBuilder;
 
   @override
@@ -21,9 +24,9 @@ class CGridLayout extends StatelessWidget {
       padding: EdgeInsets.zero,
       physics: const NeverScrollableScrollPhysics(),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        mainAxisSpacing: 0,
-        crossAxisSpacing: 0,
+        crossAxisCount: crossAxisCount,
+        mainAxisSpacing: mainAxisSpacing,
+        crossAxisSpacing: crossAxisSpacing,
         mainAxisExtent: mainAxisExtent,
       ),
       itemBuilder: itemBuilder,

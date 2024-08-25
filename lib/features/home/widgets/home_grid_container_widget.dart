@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:karngea4u/core/utils/color/colors.dart';
 import 'package:karngea4u/core/utils/sizes/sizes.dart';
-import 'package:karngea4u/features/home/widgets/home_widget_model.dart';
+import 'package:karngea4u/features/home/widgets/widget_model.dart';
 
 class GridContainerWidget extends StatelessWidget {
   const GridContainerWidget(
@@ -10,7 +10,7 @@ class GridContainerWidget extends StatelessWidget {
       required this.widget,
       required this.width});
   final int index;
-  final HomeWidgetModel widget;
+  final GridWidgetModel widget;
   final double width;
   @override
   Widget build(BuildContext context) {

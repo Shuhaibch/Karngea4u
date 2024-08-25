@@ -6,7 +6,7 @@ class CRoundedContainer extends StatelessWidget {
   const CRoundedContainer({
     super.key,
     this.width,
-    this.borderWidth=1,
+    this.borderWidth = 1,
     this.height,
     this.radius = CSizes.cardRadiusLg,
     this.child,
@@ -32,7 +32,9 @@ class CRoundedContainer extends StatelessWidget {
       decoration: BoxDecoration(
         color: backgroundColor,
         borderRadius: BorderRadius.circular(radius),
-        border: showBorder ? Border.all(color: borderColor, width: borderWidth) : null,
+        border: showBorder
+            ? Border.all(color: borderColor, width: borderWidth)
+            : null,
       ),
       child: child,
     );

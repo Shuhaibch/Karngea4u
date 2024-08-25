@@ -30,6 +30,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       backgroundColor: CColors.primaryColor,
       appBar: CAppbar(
         showBackArrow: true,
+        dividerColor: CColors.secondaryColor,
         title: Text(
           'Edit Profile',
           style: Theme.of(context)
@@ -38,126 +39,133 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               .copyWith(color: CColors.whiteColor),
         ),
       ),
-      body: Column(
-        children: [
-          const Divider(color: CColors.secondaryColor),
-          Padding(
-            padding: const EdgeInsets.all(CSizes.defaultSpace),
-            child: Column(
-              children: [
-                SettingsTextFeild(
-                  width: width,
-                  controller: fNameCTRL,
-                  hintText: "First Name",
-                  icon: Iconsax.user,
-                ),
-                const SizedBox(height: CSizes.spaceBtwInputFeild),
-                SettingsTextFeild(
-                  width: width,
-                  controller: mNameCTRL,
-                  hintText: "Middle Name",
-                  icon: Iconsax.user,
-                ),
-                const SizedBox(height: CSizes.spaceBtwInputFeild),
-                SettingsTextFeild(
-                  width: width,
-                  controller: lNameCTRL,
-                  hintText: "Last Name",
-                  icon: Iconsax.user,
-                ),
-                const SizedBox(height: CSizes.spaceBtwInputFeild),
-                SettingsTextFeild(
-                  width: width,
-                  controller: locationCTRL,
-                  hintText: "Location",
-                  icon: Iconsax.location,
-                ),
-                const SizedBox(height: CSizes.spaceBtwInputFeild),
-
-                //?  icon Row
-                Row(
-                  children: [
-                    Row(
-                      children: [
-                        Checkbox(
-                          checkColor: CColors.primaryColor,
-                          side: const BorderSide(
-                              color: CColors.primaryColor, width: 2),
-                          activeColor: CColors.whiteColor,
-                          fillColor:
-                              const WidgetStatePropertyAll(CColors.whiteColor),
-                          value: isTelegram,
-                          onChanged: (value) {
-                            setState(() {
-                              isTelegram = value!;
-                            });
-                          },
-                        ),
-                        const Image(
-                          height: 25,
-                          image: AssetImage(
-                            CImageString.telegram,
-                          ),
-                          fit: BoxFit.fill,
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Checkbox(
-                          checkColor: CColors.primaryColor,
-                          side: const BorderSide(
-                              color: CColors.primaryColor, width: 2),
-                          activeColor: CColors.whiteColor,
-                          fillColor:
-                              const WidgetStatePropertyAll(CColors.whiteColor),
-                          value: isWhatsApp,
-                          onChanged: (value) {
-                            setState(() {
-                              isWhatsApp = value!;
-                            });
-                          },
-                        ),
-                        const Image(
-                          height: 25,
-                          image: AssetImage(
-                            CImageString.whatsapp,
-                          ),
-                          fit: BoxFit.cover,
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-                const SizedBox(height: CSizes.spaceBtwSection),
-                SizedBox(
-                  width: double.infinity,
-                  child: OutlinedButton(
-                    style:
-                        Theme.of(context).outlinedButtonTheme.style!.copyWith(),
-                    onPressed: () {
-                      showDialog(
-                        barrierDismissible: false,
-                        context: context,
-                        builder: (BuildContext context) {
-                          return SettingDialogWidget(
-                              subTitle: 'Are you sure to save the profile?',
-                              title: "Edit Profile",
-                              height: height,
-                              width: width);
-                        },
-                      );
-                    },
-                    child: const Text(
-                      'Save',
-                      style: TextStyle(color: CColors.whiteColor),
-                    ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            // const Divider(color: CColors.secondaryColor),
+            Padding(
+              padding: const EdgeInsets.all(CSizes.defaultSpace),
+              child: Column(
+                children: [
+                  SettingsTextFeild(
+                    width: width,
+                    controller: fNameCTRL,
+                    hintText: "First Name",
+                    icon: Iconsax.user,
                   ),
-                )
-              ],
-            ),
-          )
-        ],
+                  const SizedBox(height: CSizes.spaceBtwInputFeild),
+                  SettingsTextFeild(
+                    width: width,
+                    controller: mNameCTRL,
+                    hintText: "Middle Name",
+                    icon: Iconsax.user,
+                  ),
+                  const SizedBox(height: CSizes.spaceBtwInputFeild),
+                  SettingsTextFeild(
+                    width: width,
+                    controller: lNameCTRL,
+                    hintText: "Last Name",
+                    icon: Iconsax.user,
+                  ),
+                  const SizedBox(height: CSizes.spaceBtwInputFeild),
+                  SettingsTextFeild(
+                    width: width,
+                    controller: locationCTRL,
+                    hintText: "Location",
+                    icon: Iconsax.location,
+                  ),
+                  const SizedBox(height: CSizes.spaceBtwInputFeild),
+
+                  //?  icon Row
+                  Row(
+                    children: [
+                      Row(
+                        children: [
+                          Checkbox(
+                            checkColor: CColors.primaryColor,
+                            side: const BorderSide(
+                                color: CColors.primaryColor, width: 2),
+                            activeColor: CColors.whiteColor,
+                            fillColor: const WidgetStatePropertyAll(
+                                CColors.whiteColor),
+                            value: isTelegram,
+                            onChanged: (value) {
+                              setState(() {
+                                isTelegram = value!;
+                              });
+                            },
+                          ),
+                          const Image(
+                            height: 25,
+                            image: AssetImage(
+                              CImageString.telegram,
+                            ),
+                            fit: BoxFit.fill,
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Checkbox(
+                            checkColor: CColors.primaryColor,
+                            side: const BorderSide(
+                                color: CColors.primaryColor, width: 2),
+                            activeColor: CColors.whiteColor,
+                            fillColor: const WidgetStatePropertyAll(
+                                CColors.whiteColor),
+                            value: isWhatsApp,
+                            onChanged: (value) {
+                              setState(() {
+                                isWhatsApp = value!;
+                              });
+                            },
+                          ),
+                          const Image(
+                            height: 25,
+                            image: AssetImage(
+                              CImageString.whatsapp,
+                            ),
+                            fit: BoxFit.cover,
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                  const SizedBox(height: CSizes.spaceBtwSection),
+                  SizedBox(
+                    width: double.infinity,
+                    child: OutlinedButton(
+                      style: Theme.of(context)
+                          .outlinedButtonTheme
+                          .style!
+                          .copyWith(),
+                      onPressed: () {
+                        showDialog(
+                          barrierDismissible: false,
+                          context: context,
+                          builder: (BuildContext context) {
+                            return SettingDialogWidget(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                subTitle: 'Are you sure to save the profile?',
+                                title: "Edit Profile",
+                                height: height,
+                                width: width);
+                          },
+                        );
+                      },
+                      child: const Text(
+                        'Save',
+                        style: TextStyle(color: CColors.whiteColor),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

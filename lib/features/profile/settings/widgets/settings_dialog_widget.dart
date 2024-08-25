@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:karngea4u/core/commen/widgets/container/rounded_container.dart';
 import 'package:karngea4u/core/utils/color/colors.dart';
 import 'package:karngea4u/core/utils/sizes/sizes.dart';
 
@@ -10,79 +9,63 @@ class SettingDialogWidget extends StatelessWidget {
     required this.width,
     required this.title,
     required this.subTitle,
+    required this.onPressed,
   });
 
   final double height;
   final String title, subTitle;
   final double width;
+  final void Function() onPressed;
 
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      child: CRoundedContainer(
-        height: height * .25,
-        backgroundColor: CColors.whiteColor,
-        width: width * .9,
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  IconButton(
-                    icon: const Icon(Icons.close),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              title,
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.headlineMedium,
+            ),
+            const SizedBox(height: CSizes.spaceBtwInputFeild),
+            Text(
+              subTitle,
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.headlineSmall,
+            ),
+            const SizedBox(height: CSizes.spaceBtwInputFeild),
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Expanded(
+                  child: ElevatedButton(
+                    style: Theme.of(context)
+                        .elevatedButtonTheme
+                        .style!
+                        .copyWith(
+                            backgroundColor: const WidgetStatePropertyAll(
+                                CColors.secondaryColor)),
                     onPressed: () {
-                      Navigator.pop(context);
+                      // Close the AlertDialog
+                      Navigator.of(context).pop();
                     },
-                  )
-                ],
-              ),
-              Text(
-                title,
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.headlineMedium,
-              ),
-              const SizedBox(height: CSizes.spaceBtwInputFeild),
-              Text(
-                subTitle,
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.headlineSmall,
-              ),
-              const SizedBox(height: CSizes.spaceBtwInputFeild),
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Expanded(
-                    child: ElevatedButton(
-                      style: Theme.of(context)
-                          .elevatedButtonTheme
-                          .style!
-                          .copyWith(
-                              backgroundColor: const WidgetStatePropertyAll(
-                                  CColors.secondaryColor)),
-                      onPressed: () {
-                        // Close the AlertDialog
-                        Navigator.of(context).pop();
-                      },
-                      child: const Text('Cancel'),
-                    ),
+                    child: const Text('Cancel'),
                   ),
-                  const SizedBox(width: CSizes.sm),
-                  Expanded(
-                    child: ElevatedButton(
-                      onPressed: () {
-                        // Close the AlertDialog
-                        Navigator.of(context).pop();
-                      },
-                      child: const Text('Okey'),
-                    ),
+                ),
+                const SizedBox(width: CSizes.sm),
+                Expanded(
+                  child: ElevatedButton(
+                    onPressed: onPressed,
+                    child: const Text('Okey'),
                   ),
-                  const SizedBox(height: CSizes.lg),
-                ],
-              )
-            ],
-          ),
+                ),
+                const SizedBox(height: CSizes.lg),
+              ],
+            )
+          ],
         ),
       ),
     );

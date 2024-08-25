@@ -25,6 +25,7 @@ class _SettingsEmailChangeScreenState extends State<SettingsEmailChangeScreen> {
     return Scaffold(
       backgroundColor: CColors.primaryColor,
       appBar: CAppbar(
+        dividerColor: CColors.secondaryColor,
         showBackArrow: true,
         title: Text(
           'Change Email',
@@ -34,62 +35,63 @@ class _SettingsEmailChangeScreenState extends State<SettingsEmailChangeScreen> {
               .copyWith(color: CColors.whiteColor),
         ),
       ),
-      body: Column(
-        children: [
-          const Divider(color: CColors.secondaryColor),
-          Padding(
-            padding: const EdgeInsets.all(CSizes.defaultSpace),
-            child: Column(
-              children: [
-                SettingsTextFeild(
-                  width: width,
-                  controller: oEmailCTRL,
-                  hintText: "Current Email",
-                  icon: Icons.email_outlined,
-                ),
-                const SizedBox(height: CSizes.spaceBtwInputFeild),
-                SettingsTextFeild(
-                  width: width,
-                  controller: newEmailCTRL,
-                  hintText: "New Email",
-                  icon: Icons.email_outlined,
-                ),
-                const SizedBox(height: CSizes.spaceBtwInputFeild),
-                SettingsTextFeild(
-                  width: width,
-                  controller: otpCTRL,
-                  hintText: "OTP Code",
-                  icon: Icons.email_outlined,
-                ),
-                const SizedBox(height: CSizes.spaceBtwInputFeild),
-                SizedBox(
-                  width: double.infinity,
-                  child: OutlinedButton(
-                    style:
-                        Theme.of(context).outlinedButtonTheme.style!.copyWith(),
-                    onPressed: () {
-                      // showDialog(
-                      //   barrierDismissible: false,
-                      //   context: context,
-                      //   builder: (BuildContext context) {
-                      //     return SettingDialogWidget(
-                      //         title: "Change Password",
-                      //         subTitle: "Are you sure to change password",
-                      //         height: height,
-                      //         width: width);
-                      //   },
-                      // );
-                    },
-                    child: const Text(
-                      'Save',
-                      style: TextStyle(color: CColors.whiteColor),
-                    ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(CSizes.defaultSpace),
+              child: Column(
+                children: [
+                  SettingsTextFeild(
+                    width: width,
+                    controller: oEmailCTRL,
+                    hintText: "Current Email",
+                    icon: Icons.email_outlined,
                   ),
-                )
-              ],
-            ),
-          )
-        ],
+                  const SizedBox(height: CSizes.spaceBtwInputFeild),
+                  SettingsTextFeild(
+                    width: width,
+                    controller: newEmailCTRL,
+                    hintText: "New Email",
+                    icon: Icons.email_outlined,
+                  ),
+                  const SizedBox(height: CSizes.spaceBtwInputFeild),
+                  SettingsTextFeild(
+                    width: width,
+                    controller: otpCTRL,
+                    hintText: "OTP Code",
+                    icon: Icons.email_outlined,
+                  ),
+                  const SizedBox(height: CSizes.spaceBtwInputFeild),
+                  SizedBox(
+                    width: double.infinity,
+                    child: OutlinedButton(
+                      style:
+                          Theme.of(context).outlinedButtonTheme.style!.copyWith(),
+                      onPressed: () {
+                        // showDialog(
+                        //   barrierDismissible: false,
+                        //   context: context,
+                        //   builder: (BuildContext context) {
+                        //     return SettingDialogWidget(
+                        //         title: "Change Password",
+                        //         subTitle: "Are you sure to change password",
+                        //         height: height,
+                        //         width: width);
+                        //   },
+                        // );
+                      },
+                      child: const Text(
+                        'Save',
+                        style: TextStyle(color: CColors.whiteColor),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

@@ -13,9 +13,17 @@ class CTextTheme {
     headlineSmall: const TextStyle().copyWith(
         fontSize: 18, fontWeight: FontWeight.w600, color: CColors.primaryColor),
 
+    //* displat
+    displayLarge: const TextStyle().copyWith(
+        fontSize: 24, fontWeight: FontWeight.bold, color: CColors.primaryColor),
+    displayMedium: const TextStyle().copyWith(
+        fontSize: 22, fontWeight: FontWeight.w600, color: CColors.primaryColor),
+    displaySmall: const TextStyle().copyWith(
+        fontSize: 20, fontWeight: FontWeight.w600, color: CColors.primaryColor),
+
     //* title
     titleLarge: const TextStyle().copyWith(
-        fontSize: 16, fontWeight: FontWeight.w600, color: CColors.primaryColor),
+        fontSize: 17, fontWeight: FontWeight.w600, color: CColors.primaryColor),
     titleMedium: const TextStyle().copyWith(
         fontSize: 16, fontWeight: FontWeight.w500, color: CColors.primaryColor),
     titleSmall: const TextStyle().copyWith(
@@ -40,6 +48,10 @@ class CTextTheme {
         color: CColors.primaryColor),
     labelMedium: const TextStyle().copyWith(
         fontSize: 12,
+        fontWeight: FontWeight.normal,
+        color: Colors.black.withOpacity(0.5)),
+    labelSmall: const TextStyle().copyWith(
+        fontSize: 10,
         fontWeight: FontWeight.normal,
         color: Colors.black.withOpacity(0.5)),
   );

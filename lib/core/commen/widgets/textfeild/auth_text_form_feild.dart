@@ -10,18 +10,20 @@ class AuthTextFormFeild extends StatelessWidget {
     this.suffixIcon,
     required this.controller,
     required this.hintText,
+    this.validator,
   });
   final IconData? icon, suffixIcon;
   final TextEditingController controller;
   final String hintText;
   final bool obscureText;
-
+  final String? Function(String?)? validator;
   final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       cursorColor: CColors.primaryColor,
       obscureText: obscureText,
+      validator: validator,
       decoration: InputDecoration(
         hintText: hintText,
         prefixIcon: Icon(

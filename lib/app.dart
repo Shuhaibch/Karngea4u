@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:karngea4u/core/language/bloc/localization_bloc.dart';
+import 'package:karngea4u/core/utils/color/colors.dart';
 import 'package:karngea4u/core/utils/theme/theme.dart';
 import 'package:karngea4u/features/splash/screens/splash_screen.dart';
 import 'package:karngea4u/init_depentancies.dart';
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
             locale: state.selectedLanguage.value,
             supportedLocales: AppLocalizations.supportedLocales,
             localizationsDelegates: AppLocalizations.localizationsDelegates,
-         
+            color: CColors.whiteColor,
             debugShowCheckedModeBanner: false,
             title: 'Karngea4u App',
             themeMode: ThemeMode.system,
